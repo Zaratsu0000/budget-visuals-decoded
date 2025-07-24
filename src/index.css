@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 220 25% 25%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -26,8 +26,8 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 15% 92%;
+    --accent-foreground: 220 25% 25%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -35,6 +35,25 @@ All colors MUST be HSL.
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
+
+    /* Government color scheme */
+    --saffron: 25 100% 60%;
+    --green: 120 73% 29%;
+    --navy: 220 25% 25%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(220 30% 35%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)) 0%, hsl(220 15% 97%) 100%);
+    --gradient-saffron: linear-gradient(135deg, hsl(var(--saffron)) 0%, hsl(30 90% 65%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -2px hsl(220 25% 25% / 0.1);
+    --shadow-card-hover: 0 8px 40px -4px hsl(220 25% 25% / 0.15);
+    --shadow-modal: 0 20px 60px -10px hsl(220 25% 25% / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --radius: 0.5rem;
 
