@@ -2,7 +2,7 @@ import parliamentHero from "@/assets/parliament-hero.jpg";
 
 const HeroSection = () => {
   return (
-    <section id="overview" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="overview" className="relative min-h-screen flex items-center justify-center overflow-hidden mt-16">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img

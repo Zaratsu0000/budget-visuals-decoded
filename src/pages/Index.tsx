@@ -4,6 +4,7 @@ import PieChartsSection from "@/components/PieChartsSection";
 import BudgetCards from "@/components/BudgetCards";
 import SubsidiesSection from "@/components/SubsidiesSection";
 import KeyHighlights from "@/components/KeyHighlights";
+import TaxSection from "@/components/TaxSection";
 import ResourcesSection from "@/components/ResourcesSection";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ const Index = () => {
       <BudgetCards />
       <SubsidiesSection />
       <KeyHighlights />
+      <TaxSection />
       <ResourcesSection />
       <Footer />
     </div>

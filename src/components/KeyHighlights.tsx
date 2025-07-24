@@ -1,6 +1,31 @@
 import { CheckCircle, TrendingUp, Zap, Users, Shield, Leaf } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const KeyHighlights = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeHighlight, setActiveHighlight] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById('highlights');
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const sectionHeight = section.offsetHeight;
+        
+        // Calculate progress based on section visibility
+        const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + sectionHeight)));
+        setScrollProgress(progress);
+        
+        // Calculate active highlight based on scroll position
+        const highlightIndex = Math.floor(progress * highlights.length);
+        setActiveHighlight(Math.min(highlightIndex, highlights.length - 1));
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const highlights = [
     {
       id: 1,
@@ -91,6 +116,12 @@ const KeyHighlights = () => {
           <div className="relative">
             {/* Timeline Line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-saffron via-green to-navy"></div>
+            
+            {/* Progress Line */}
+            <div 
+              className="absolute left-8 top-0 w-0.5 bg-gradient-to-b from-saffron/80 via-green/80 to-navy/80 transition-all duration-300 ease-out"
+              style={{ height: `${scrollProgress * 100}%` }}
+            ></div>
 
             {/* Timeline Items */}
             <div className="space-y-12">
@@ -101,8 +132,14 @@ const KeyHighlights = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {/* Timeline Dot */}
-                  <div className={`relative z-10 w-16 h-16 rounded-full ${getBgColor(highlight.category)} flex items-center justify-center shadow-lg`}>
-                    <highlight.icon className={`w-8 h-8 ${getIconColor(highlight.category)}`} />
+                  <div className={`relative z-20 w-16 h-16 rounded-full ${getBgColor(highlight.category)} ${
+                    activeHighlight >= index ? 'ring-4 ring-offset-2 ring-offset-background shadow-2xl scale-110' : 'shadow-lg'
+                  } ${
+                    activeHighlight === index ? `shadow-${highlight.category.toLowerCase().replace(' ', '-')}-glow` : ''
+                  } flex items-center justify-center transition-all duration-500 ease-out border-2 border-background`}>
+                    <highlight.icon className={`w-8 h-8 ${getIconColor(highlight.category)} ${
+                      activeHighlight >= index ? 'animate-pulse' : ''
+                    } transition-all duration-300`} />
                   </div>
 
                   {/* Content Card */}

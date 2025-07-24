@@ -2,12 +2,31 @@ import { Facebook, Twitter, Youtube, Mail, Phone, MapPin, ExternalLink } from "l
 
 const Footer = () => {
   const quickLinks = [
-    { label: "Budget Overview", href: "#overview" },
-    { label: "Revenue Sources", href: "#revenue" },
-    { label: "Department Budgets", href: "#departments" },
-    { label: "Welfare Programs", href: "#subsidies" },
-    { label: "Policy Highlights", href: "#highlights" },
-    { label: "Resources", href: "#resources" }
+    { label: "Home", href: "/" },
+    { label: "FinMap", href: "/finmap" },
+    { label: "Departments", href: "/departments" },
+    { label: "Subsidies", href: "/subsidies" },
+    { label: "Resources", href: "/resources" },
+    { label: "Taxes", href: "/taxes" },
+    { label: "Compare", href: "/compare" }
+  ];
+
+  const departmentLinks = [
+    { label: "Defence Budget", href: "/departments/defence" },
+    { label: "Education & Skills", href: "/departments/education" },
+    { label: "Health & Wellness", href: "/departments/health" },
+    { label: "Railways", href: "/departments/railways" },
+    { label: "Infrastructure", href: "/departments/infrastructure" },
+    { label: "Agriculture", href: "/departments/agriculture" }
+  ];
+
+  const analysisLinks = [
+    { label: "Budget Analysis", href: "/analysis" },
+    { label: "Economic Survey", href: "/economic-survey" },
+    { label: "Previous Budgets", href: "/compare/previous" },
+    { label: "Sector-wise Analysis", href: "/analysis/sectors" },
+    { label: "State Budget Comparison", href: "/compare/states" },
+    { label: "Global Comparison", href: "/compare/global" }
   ];
 
   const governmentPortals = [
@@ -40,7 +59,7 @@ const Footer = () => {
   return (
     <footer className="bg-navy text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
@@ -85,6 +104,44 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-6">Quick Navigation</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-sm opacity-80 hover:opacity-100 hover:text-saffron transition-all duration-300 flex items-center group"
+                  >
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                      {link.label}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Departments */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6">Departments</h4>
+            <ul className="space-y-3">
+              {departmentLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-sm opacity-80 hover:opacity-100 hover:text-saffron transition-all duration-300 flex items-center group"
+                  >
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                      {link.label}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Analysis & Tools */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6">Analysis & Tools</h4>
+            <ul className="space-y-3">
+              {analysisLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
